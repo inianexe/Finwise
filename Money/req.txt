@@ -1,0 +1,15 @@
+FINWISE
+
+1. Expense Tracker - manual , read from photo, bank statement  
+2. money save tracker ( for a specific task ) 
+3. gamify . - like streak , 
+4. Income tracker
+5. auto categorisation 
+6. expense prediction 
+7. expense , income anallysis graph 
+8. limit notification  - specified .
+9. AI advise 
+10. What - if simulator 
+11. Report as file 
+12. Loading page with fin tips
+13. 

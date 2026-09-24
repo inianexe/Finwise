@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d171a">
+  <meta name="description" content="Finwise — a calmer way to see your money.">
+  <title>Finwise — Your money, in focus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash" aria-live="polite">
+    <div class="splash-mark">f<span>.</span></div>
+    <p class="splash-brand">finwise</p>
+    <div class="splash-bottom"><span class="eyebrow">A LITTLE MONEY WISDOM</span><p id="splash-tip"></p><div class="splash-line"><i></i></div></div>
+  </div>
+
+  <section class="auth-screen" id="auth-screen" hidden aria-labelledby="auth-title">
+    <div class="auth-panel"><div class="brand auth-brand"><span class="brand-mark">f<span>.</span></span><span>finwise</span></div>
+      <div class="eyebrow accent">YOUR MONEY, YOUR SPACE</div><h1 id="auth-title">Welcome back<span class="heading-dot">.</span></h1><p id="auth-subtitle">Sign in to see your finances.</p>
+      <form id="auth-form"><div class="field" id="auth-name-field" hidden><label for="auth-name">Your name</label><input id="auth-name" name="displayName" autocomplete="name" maxlength="60"></div><div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="auth-password">Password</label><input id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="12"></div><p class="auth-error" id="auth-error" role="alert"></p><button class="button primary auth-submit" id="auth-submit" type="submit">Sign in</button></form>
+      <p class="auth-switch"><span id="auth-switch-text">New to Finwise?</span> <button id="auth-switch-button" type="button">Create an account</button></p>
+      <p class="auth-footnote">Your records are stored privately on this computer.</p>
+    </div>
+  </section>
+
+  <div class="app-shell" id="app" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Finwise home"><span class="brand-mark">f<span>.</span></span><span>finwise</span></a>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-link" data-view="activity"><span class="nav-icon">⇄</span> Activity</button>
+        <button class="nav-link" data-view="goals"><span class="nav-icon">◎</span> Savings goals</button>
+        <button class="nav-link" data-view="limits"><span class="nav-icon">◫</span> Spending limits</button>
+        <button class="nav-link" data-view="insights"><span class="nav-icon">✦</span> AI insights</button>
+        <button class="nav-link" data-view="reports"><span class="nav-icon">▥</span> Reports</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-tip"><span>✦</span><p>Small steps add up.<br><strong>Keep showing up.</strong></p></div><button class="sidebar-profile" id="profile-btn"><span class="avatar">FW</span><span><strong>My workspace</strong><small>Personal account</small></span><span>⌄</span></button></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div class="topbar-left"><span class="mobile-brand">finwise<span>.</span></span><span id="breadcrumb">Overview</span></div><div class="top-actions"><span class="today" id="today-label"></span><button class="icon-button mobile-reports" data-view="reports" aria-label="Reports">▥</button><button class="icon-button mobile-insights" data-view="insights" aria-label="AI insights">✦</button><button class="icon-button" id="notification-btn" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></svg><i id="notification-dot"></i></button><button class="mobile-profile" id="mobile-profile-btn" aria-label="Workspace settings">FW</button><span class="avatar top-avatar">FW</span></div></header>
+
+      <div class="content">
+        <section class="view active" id="view-home">
+          <div class="page-heading"><div><div class="eyebrow accent">YOUR FINANCIAL SPACE</div><h1>Good <span id="day-part">day</span><span class="heading-dot">.</span></h1><p>Here’s what your money has been up to.</p></div><button class="button primary desktop-add" data-open="transaction">＋ Add transaction</button></div>
+          <div class="demo-banner" id="demo-banner"><span><strong>Explore with sample data.</strong> Ready to use your own money records?</span><button id="start-workspace">Start fresh →</button></div>
+          <div class="overview-grid">
+            <div class="balance-card"><div class="balance-top"><span class="eyebrow">AVAILABLE BALANCE</span><span class="balance-symbol">↗</span></div><div class="balance-number" id="balance-total">₹0</div><div class="balance-footer"><span id="balance-caption">Income minus expenses, all time</span><span class="balance-motif">✳</span></div></div>
+            <div class="metric-card"><div class="metric-icon income">↙</div><span class="metric-label">Income this month</span><strong id="month-income">₹0</strong><span class="metric-foot">Money coming in</span></div>
+            <div class="metric-card"><div class="metric-icon expense">↗</div><span class="metric-label">Spent this month</span><strong id="month-expense">₹0</strong><span class="metric-foot" id="expense-foot">Money going out</span></div>
+          </div>
+          <div class="home-grid">
+            <div class="panel flow-panel"><div class="panel-heading"><div><span class="eyebrow">THE BIG PICTURE</span><h2>Cash flow</h2></div><span class="subtle-pill">Last 6 months</span></div><div class="chart-legend"><span><i class="legend-income"></i> Income</span><span><i class="legend-expense"></i> Expenses</span></div><div class="bar-chart" id="cash-chart"></div></div>
+            <div class="panel spend-panel"><div class="panel-heading"><div><span class="eyebrow">WHERE IT GOES</span><h2>Spending breakdown</h2></div><span class="subtle-pill" id="spend-month-label"></span></div><div class="spend-chart-wrap"><div class="donut" id="spend-donut"><div><small>TOTAL SPENT</small><strong id="donut-total">₹0</strong></div></div><div class="category-legend" id="category-legend"></div></div></div>
+            <div class="panel activity-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR MONEY MOVES</span><h2>Recent activity</h2></div><button class="text-button" data-view="activity">View all →</button></div><div id="recent-list"></div></div>
+            <div class="panel goals-panel"><div class="panel-heading"><div><span class="eyebrow">DREAMS IN PROGRESS</span><h2>Savings goals</h2></div><button class="text-button" data-view="goals">View all →</button></div><div id="home-goals"></div></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-activity"><div class="page-heading"><div><div class="eyebrow accent">EVERY RUPEE, IN VIEW</div><h1>Activity<span class="heading-dot">.</span></h1><p>Track what comes in and what goes out.</p></div><button class="button primary" data-open="transaction">＋ Add transaction</button></div><div class="panel"><div class="toolbar"><div class="segmented" id="activity-filter"><button class="selected" data-filter="all">All</button><button data-filter="expense">Expenses</button><button data-filter="income">Income</button></div><div class="toolbar-actions"><button class="button secondary small" data-open="import">⇧ Import statement</button><button class="button secondary small" data-open="photo">▧ Scan receipt</button></div></div><div id="activity-list"></div></div></section>
+
+        <section class="view" id="view-goals"><div class="page-heading"><div><div class="eyebrow accent">MAKE IT HAPPEN</div><h1>Savings goals<span class="heading-dot">.</span></h1><p>Give the money you save a purpose.</p></div><button class="button primary" data-open="goal">＋ New goal</button></div><div class="goals-summary"><div><span class="eyebrow">TOTAL SAVED TOWARD GOALS</span><strong id="goals-saved">₹0</strong></div><div class="goals-summary-art">◎</div></div><div class="goals-grid" id="goals-grid"></div></section>
+
+        <section class="view" id="view-limits"><div class="page-heading"><div><div class="eyebrow accent">SPEND WITH INTENTION</div><h1>Spending limits<span class="heading-dot">.</span></h1><p>Set monthly limits and know when you’re close.</p></div><button class="button primary" data-open="limit">＋ Set a limit</button></div><div class="limits-banner"><span>✳</span><div><strong>Make room for what matters.</strong><p>We’ll highlight categories at 80% of their limit and alert you when they reach it.</p></div></div><div class="limits-list" id="limits-list"></div></section>
+
+        <section class="view" id="view-insights"><div class="page-heading"><div><div class="eyebrow accent">A FRESH PERSPECTIVE</div><h1>AI insights<span class="heading-dot">.</span></h1><p>Understand the patterns behind your numbers.</p></div></div><div class="insight-hero"><div><span class="eyebrow">POWERED BY CODEX CLI</span><h2>A thoughtful look at your money.</h2><p>Codex analyzes six months of totals, category spending, goals, and limits. Transaction descriptions and your email stay out of the analysis.</p><button class="button primary" id="analyze-button">✦ Analyze my finances</button></div><span class="insight-hero-art">✳</span></div><div id="insight-results" class="insight-results"><div class="panel empty-state"><strong>No analysis yet</strong>Add a few transactions, then ask Codex for a summary.</div></div><p class="insight-disclaimer">AI insights can be inaccurate and are for budgeting reflection, not financial advice.</p></section>
+
+        <section class="view" id="view-reports"><div class="page-heading"><div><div class="eyebrow accent">A CLEARER PICTURE</div><h1>Reports<span class="heading-dot">.</span></h1><p>Your money story, ready to take with you.</p></div></div><div class="reports-grid"><div class="report-feature"><span class="eyebrow">MONTHLY SNAPSHOT</span><div class="report-art"><div></div><div></div><div></div><div></div><div></div><div></div></div><h2>Your finances, on one page.</h2><p>Download a printable report with your income, expenses, categories, and goals.</p><button class="button primary" id="download-report">↓ Download report</button></div><div class="report-options"><div class="panel"><span class="option-icon">↥</span><h3>Export transactions</h3><p>Get every income and expense entry as a CSV file for spreadsheets.</p><button class="button secondary" id="export-csv">Download CSV →</button></div><div class="panel"><span class="option-icon">⇧</span><h3>Import a statement</h3><p>Bring transactions in from a bank statement in CSV format.</p><button class="button secondary" data-open="import">Import CSV →</button></div></div></div></section>
+      </div>
+    </main>
+    <nav class="bottom-nav" aria-label="Mobile navigation"><button class="active" data-view="home"><span>⌂</span><small>Home</small></button><button data-view="activity"><span>⇄</span><small>Activity</small></button><button class="bottom-add" data-open="transaction" aria-label="Add transaction"><span>＋</span></button><button data-view="goals"><span>◎</span><small>Goals</small></button><button data-view="limits"><span>◫</span><small>Limits</small></button></nav>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><span class="eyebrow accent" id="modal-kicker"></span><h2 id="modal-title"></h2></div><button class="close-button" id="close-modal" aria-label="Close">×</button></div><div id="modal-body"></div></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="csv-input" accept=".csv,text/csv" hidden>
+  <input type="file" id="photo-input" accept="image/*" capture="environment" hidden>
+  <script src="app.js" defer></script>
+</body>
+</html>

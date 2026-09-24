@@ -1,0 +1,8 @@
+Version 1.0:
+
+ Expense Tracker - manual , read from photo, bank statement
+money save tracker ( for a specific task 
+Income tracker
+limit notification  - specified
+Report as file
+Loading page with fin tips.

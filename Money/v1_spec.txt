@@ -1,0 +1,12 @@
+expense - categories ( default 5 ) + user can add a new cate - adds
+ to a monthly , yearly sum .
+
+income - same as exp ( but adds to one final sum ) .
+
+income to expense analysis graphical dashboard . ( bar graphs ) .
+
+limit to be set by the user for an expense by category - notify if the limit is
+abt to be reached for the month or reached . 
+
+
+

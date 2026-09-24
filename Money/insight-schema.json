@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": { "type": "string" },
+    "observations": { "type": "array", "items": { "type": "string" } },
+    "suggestions": { "type": "array", "items": { "type": "string" } },
+    "outlook": { "type": "string" }
+  },
+  "required": ["summary", "observations", "suggestions", "outlook"],
+  "additionalProperties": false
+}
